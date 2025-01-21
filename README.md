@@ -8,11 +8,11 @@ This is a simple open webui function for R1 models, it can do the following:
 1. Replace the simple `<think>` tags with `<details>` & `<summary>` tags, which makes R1's thoughts collapsible, like this:
 
 <details>
-<summary>Thoughts</summary>
+<summary>Thoughts💬</summary>
 Emmm.. LASAGNA...
 </details>
 
-2. Remove R1's old thoughts in multi-turn conversion, according to deepseeks API docs you should always remove R1's previous thoughts in a multi-turn conversion.
+2. Remove R1's old thoughts in multi-turn conversation, according to deepseeks API docs you should always remove R1's previous thoughts in a multi-turn conversation.
 
 ---
 
