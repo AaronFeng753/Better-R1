@@ -1,5 +1,5 @@
 # Better-R1
-A open webui function for better R1 experience
+A open webui function for better local R1 experience
 
 ---
 
@@ -13,6 +13,8 @@ Emmm.. LASAGNA...
 </details>
 
 2. Remove R1's old thoughts in multi-turn conversation, according to deepseeks API docs you should always remove R1's previous thoughts in a multi-turn conversation.
+
+#### Note: this function is only designed for those who run R1(-distilled) models locally, like using ollama, it doesn't work with deepseek api
 
 ---
 
