@@ -1,0 +1,73 @@
+"""
+title: Better R1
+author: Aaron Feng
+author_url: https://github.com/AaronFeng753
+version: 0.1
+"""
+
+from pydantic import BaseModel, Field
+from typing import Optional
+import re
+
+
+class Filter:
+    class Valves(BaseModel):
+        priority: int = Field(default=0, description="")
+        max_turns: int = Field(default=9999, description="")
+        pass
+
+    class UserValves(BaseModel):
+        max_turns: int = Field(default=9999, description="")
+        pass
+
+    def __init__(self):
+        self.valves = self.Valves()
+        pass
+
+    def inlet(self, body: dict, __user__: Optional[dict] = None) -> dict:
+
+        messages = body.get("messages", [])
+        modified_messages = []
+
+        for message in messages:
+            if message.get("role") == "assistant":
+                message_content = message.get("content", "")
+                pattern = r"<details[^>]*>.*?</details>"
+                modified_content = re.sub(pattern, "", message_content, flags=re.DOTALL)
+                modified_message = {"role": "assistant", "content": modified_content}
+            else:
+                modified_message = message
+            modified_messages.append(modified_message)
+
+        body["messages"] = modified_messages
+
+        print(f"inlet:modified_body:{body}")
+
+        return body
+
+    async def outlet(
+        self, body: dict, __user__: Optional[dict] = None, __event_emitter__=None
+    ) -> dict:
+        # print(f"outlet:{__name__}")
+        # print(f"outlet:body:{body}")
+        # print(f"outlet:user:{__user__}")
+
+        messages = body.get("messages", [])
+
+        if not messages:
+            return body
+
+        User_message = messages[-2].get("content", "")
+
+        model_response = messages[-1].get("content", "")
+
+        model_response = model_response.replace(
+            "<think>", "<details>\n<summary>Thoughts</summary>"
+        )
+
+        model_response = model_response.replace("</think>", "\n\n---\n\n</details>")
+
+        messages[-1]["content"] = model_response
+        body["messages"] = messages
+
+        return body
