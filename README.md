@@ -20,6 +20,10 @@ Code: https://github.com/AaronFeng753/Better-R1/blob/main/BetterR1.txt
 
 ---
 
+Check out my other project: https://github.com/AaronFeng753/Waifu2x-Extension-GUI
+
+---
+
 DEMO:
 
 ![](https://github.com/AaronFeng753/Better-R1/blob/main/DEMO.gif?raw=true)
