@@ -62,7 +62,7 @@ class Filter:
         model_response = messages[-1].get("content", "")
 
         model_response = model_response.replace(
-            "<think>", "<details>\n<summary>Thoughts</summary>"
+            "<think>", "<details>\n<summary>Thoughts 💭</summary>"
         )
 
         model_response = model_response.replace("</think>", "\n\n---\n\n</details>")
