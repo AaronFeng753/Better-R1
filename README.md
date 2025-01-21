@@ -1,5 +1,5 @@
 # Better-R1
-A open webui function for better local R1 experience
+An open webui function for better local R1 experience
 
 ---
 
