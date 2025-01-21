@@ -14,7 +14,7 @@ Emmm.. LASAGNA...
 
 2. Remove R1's old thoughts in multi-turn conversation, according to deepseeks API docs you should always remove R1's previous thoughts in a multi-turn conversation.
 
-#### Note: this function is only designed for those who run R1(-distilled) models locally, like using ollama, it doesn't work with deepseek api
+#### Note: This function is only designed for those who run R1 (-distilled) models locally, such as using Ollama. It does not work with the DeepSeek API.
 
 ---
 
