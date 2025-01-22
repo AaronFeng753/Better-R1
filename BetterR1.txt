@@ -1,3 +1,10 @@
+"""
+title: Better R1
+author: Aaron Feng
+author_url: https://github.com/AaronFeng753
+version: 0.1
+"""
+
 from pydantic import BaseModel, Field
 from typing import Optional
 import re
