@@ -1,14 +1,8 @@
-"""
-title: Better R1
-author: Aaron Feng
-author_url: https://github.com/AaronFeng753
-version: 0.1
-"""
-
 from pydantic import BaseModel, Field
 from typing import Optional
 import re
 import time
+
 
 class Filter:
     start_time = None  # class variable to track time
@@ -25,6 +19,8 @@ class Filter:
         Filter.start_time = time.time()  # set initial time when instance created
 
     def inlet(self, body: dict, __user__: Optional[dict] = None) -> dict:
+        Filter.start_time = time.time()
+
         messages = body.get("messages", [])
         modified_messages = []
 
@@ -45,7 +41,7 @@ class Filter:
         self, body: dict, __user__: Optional[dict] = None, __event_emitter__=None
     ) -> dict:
         elapsed_time = time.time() - Filter.start_time
-        
+
         messages = body.get("messages", [])
         if not messages:
             return body
@@ -63,6 +59,6 @@ class Filter:
         body["messages"] = messages
 
         # Reset timer for next run
-        Filter.start_time = time.time()
+        Filter.start_time = None
 
         return body
