@@ -63,5 +63,7 @@ class Filter:
 
         messages[-1]["content"] = model_response
         body["messages"] = messages
+        
+        Filter.start_time = time.time()  # set initial time when instance created
 
         return body
