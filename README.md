@@ -8,7 +8,7 @@ This is a simple open webui function for R1 models, it can do the following:
 1. Replace the simple `<think>` tags with `<details>` & `<summary>` tags, which makes R1's thoughts collapsible, like this:
 
 <details>
-<summary>Thoughts💬</summary>
+<summary>Thought for 3 seconds 💭</summary>
 Emmm.. LASAGNA...
 </details>
 
@@ -22,7 +22,11 @@ Code: https://github.com/AaronFeng753/Better-R1/blob/main/BetterR1.txt
 
 ---
 
-Check out my other project: https://github.com/AaronFeng753/Waifu2x-Extension-GUI
+Check out my other project: 
+
+https://github.com/AaronFeng753/Waifu2x-Extension-GUI
+
+Photo/Video/GIF enlargement and Video frame interpolation using machine learning
 
 ---
 
