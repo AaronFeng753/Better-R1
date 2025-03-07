@@ -77,11 +77,6 @@ class Filter:
             return body
 
         model_response = messages[-1].get("content", "")
-        """
-        model_response = model_response.replace(
-            "<think>",
-            f"<details>\n<summary>Thought for {elapsed_time_str} 💭</summary>",
-        )"""
 
         model_response = (
             f"<details>\n<summary>Thought for {elapsed_time_str} 💭</summary>\n\n"
