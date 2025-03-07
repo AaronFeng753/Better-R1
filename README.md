@@ -14,9 +14,7 @@ This is a simple open webui function for R1 & QwQ models, it can do the followin
 Emmm.. LASAGNA...
 </details>
 
-3. Remove R1's old thoughts in multi-turn conversation, according to deepseeks API docs you should always remove R1's previous thoughts in a multi-turn conversation.
-
-#### Note: This function is only designed for those who run R1 (-distilled) models locally, such as using Ollama. It does not work with the DeepSeek API.
+3. Remove model's old thoughts in multi-turn conversation, according to deepseeks API docs you should always remove reasoning model's previous thoughts in a multi-turn conversation.
 
 ---
 
