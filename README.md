@@ -7,7 +7,7 @@ This is a simple open webui function for R1 & QwQ models, it can do the followin
 
 1. Make sure every assistant message(model's response) always start with `<think>` tag.
 
-2. Replace the simple `<think>` tags with `<details>` & `<summary>` tags, which makes R1's thoughts collapsible, like this:
+2. Replace the simple `<think>` tags with `<details>` & `<summary>` tags, which makes model's thoughts collapsible, like this:
 
 <details>
 <summary>Thought for 3 seconds 💭</summary>
