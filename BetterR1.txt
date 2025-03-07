@@ -2,7 +2,7 @@
 title: Better R1
 author: Aaron Feng
 author_url: https://github.com/AaronFeng753
-version: 0.2
+version: 0.1
 """
 
 from pydantic import BaseModel, Field
@@ -40,6 +40,11 @@ class Filter:
 
         body["messages"] = modified_messages
 
+        assistant_message = {"role": "assistant", "content": "<think>"}
+        body["messages"].append(assistant_message)
+
+        print(f"inlet:modified_body:{body}")
+
         Filter.start_time = time.time()  # set initial time when instance created
 
         return body
@@ -48,22 +53,49 @@ class Filter:
         self, body: dict, __user__: Optional[dict] = None, __event_emitter__=None
     ) -> dict:
         elapsed_time = time.time() - Filter.start_time
+        elapsed_time = round(elapsed_time)
+
+        hours = elapsed_time // 3600
+        minutes = (elapsed_time % 3600) // 60
+        seconds = elapsed_time % 60
+
+        time_parts = []
+        if hours > 0:
+            time_parts.append(f"{hours} hours")
+        if minutes > 0:
+            time_parts.append(f"{minutes} minutes")
+        if seconds > 0 or (hours == 0 and minutes == 0):
+            time_parts.append(f"{seconds} seconds")
+
+        if not time_parts:
+            elapsed_time_str = "0 seconds"
+        else:
+            elapsed_time_str = " ".join(time_parts)
 
         messages = body.get("messages", [])
         if not messages:
             return body
 
         model_response = messages[-1].get("content", "")
-
+        """
         model_response = model_response.replace(
             "<think>",
-            f"<details>\n<summary>Thought for {int(elapsed_time)} seconds 💭</summary>",
+            f"<details>\n<summary>Thought for {elapsed_time_str} 💭</summary>",
+        )"""
+
+        model_response = (
+            f"<details>\n<summary>Thought for {elapsed_time_str} 💭</summary>\n\n"
+            + model_response
         )
-        model_response = model_response.replace("</think>", "\n\n---\n\n</details>")
+
+        model_response = model_response.replace(
+            "</think>",
+            "\n\n---\n\n\\[\n\\boxed{END-OF-Thoughts}\n\\]\n\n---\n\n</details>",
+        )
 
         messages[-1]["content"] = model_response
         body["messages"] = messages
-        
+
         Filter.start_time = time.time()  # set initial time when instance created
 
         return body
