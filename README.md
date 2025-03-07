@@ -1,9 +1,9 @@
 # Better-R1
-An open webui function for better local R1 experience
+An open webui function for better local R1 & QwQ experience
 
 ---
 
-This is a simple open webui function for R1 models, it can do the following:
+This is a simple open webui function for R1 & QwQ models, it can do the following:
 
 1. Make sure every assistant message(model's response) always start with `<think>` tag.
 
