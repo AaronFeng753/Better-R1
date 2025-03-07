@@ -40,7 +40,7 @@ class Filter:
 
         body["messages"] = modified_messages
 
-        assistant_message = {"role": "assistant", "content": "<think>"}
+        assistant_message = {"role": "assistant", "content": "<think>\n"}
         body["messages"].append(assistant_message)
 
         print(f"inlet:modified_body:{body}")
